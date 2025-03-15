@@ -12,9 +12,8 @@
                     <h5 class="card-title mb-0">Buat laporan baru</h5>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="{{route('laporan.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-
                         <div class="row gy-3">
                             <div class="col-12">
                                 <label class="form-label">Judul laporan</label>

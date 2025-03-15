@@ -228,8 +228,15 @@
       uploadedImgContainer.classList.add('d-none');
       fileInput.value = "";
     });
+  
 
   </script>
+
+<script>    
+  $('.remove-button').on('click', function() {
+      $(this).closest('.alert').addClass('d-none')
+  }); 
+</script>
 
 </body>
 
