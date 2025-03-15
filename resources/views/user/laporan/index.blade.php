@@ -11,16 +11,18 @@
         </div>
         <div class="card-body">
 
-            <div class="alert alert-success bg-success-100 text-success-600 border-success-100 px-24 py-11 mb-0 fw-semibold text-lg radius-8 mb-5"
-                role="alert">
-                <div class="d-flex align-items-center justify-content-between text-lg">
-                    This is a Success alert
-                    <button class="remove-button text-success-600 text-xxl line-height-1"> <iconify-icon
-                            icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+            @if (session('success'))
+                <div class="alert alert-success bg-success-100 text-success-600 border-success-100 px-24 py-11 fw-semibold text-lg radius-8 mb-5"
+                    role="alert">
+                    <div class="d-flex align-items-center justify-content-between text-lg">
+                        Berhasil!
+                        <button class="remove-button text-success-600 text-xxl line-height-1"> <iconify-icon
+                                icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+                    </div>
+                    <p class="fw-medium text-success-600 text-sm mt-8">{{session('success')}}</p>
                 </div>
-                <p class="fw-medium text-success-600 text-sm mt-8">Lorem Ipsum&nbsp;is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
-            </div>
+            @endif
+
 
             <div class="table-responsive">
                 <table class="table bordered-table mb-0" id="dataTable" data-page-length='10'>
@@ -61,7 +63,12 @@
                                     @endif
                                 </td>
                                 <td>
-                                    button
+                                    <form action="#" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm">Hapus</button>
+                                        <a href="" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Detail</a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
