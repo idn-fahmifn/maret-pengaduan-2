@@ -74,10 +74,32 @@
                                             </span>
                                         </div>
                                         <!-- Editor Toolbar Start -->
-
                                         <!-- Editor start -->
                                         <textarea name="detail_laporan" class="form-control" id="editor"></textarea>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold text-neutral-900">Upload Dokumentasi </label>
+                                <div class="upload-image-wrapper">
+                                    <div
+                                        class="uploaded-img d-none position-relative h-160-px w-100 border input-form-light radius-8 overflow-hidden border-dashed bg-neutral-50">
+                                        <button type="button"
+                                            class="uploaded-img__remove position-absolute top-0 end-0 z-1 text-2xxl line-height-1 me-8 mt-8 d-flex bg-danger-600 w-40-px h-40-px justify-content-center align-items-center rounded-circle">
+                                            <iconify-icon icon="radix-icons:cross-2"
+                                                class="text-2xl text-white"></iconify-icon>
+                                        </button>
+                                        <img id="uploaded-img__preview" class="w-100 h-100 object-fit-cover"
+                                            src="assets/images/user.png" alt="image">
+                                    </div>
+                                    <label
+                                        class="upload-file h-160-px w-100 border input-form-light radius-8 overflow-hidden border-dashed bg-neutral-50 bg-hover-neutral-200 d-flex align-items-center flex-column justify-content-center gap-1"
+                                        for="upload-file">
+                                        <iconify-icon icon="solar:camera-outline"
+                                            class="text-xl text-secondary-light"></iconify-icon>
+                                        <span class="fw-semibold text-secondary-light">Upload</span>
+                                        <input id="upload-file" name="dokumentasi" type="file" hidden>
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-12">
