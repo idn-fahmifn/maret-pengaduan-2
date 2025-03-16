@@ -9,16 +9,41 @@
         <div class="col-lg-12">
             <div class="card p-0 radius-12 overflow-hidden">
                 <div class="card-body p-0">
-                    <img src="{{asset('storage/images/laporan/'.$data->dokumentasi)}}" alt="" class="w-100 h-100 object-fit-cover">
+                    <img src="{{asset('storage/images/laporan/' . $data->dokumentasi)}}" alt=""
+                        class="w-100 h-100 object-fit-cover">
                     <div class="p-32">
                         <div class="d-flex align-items-center gap-16 justify-content-between flex-wrap mb-24">
                             <div class="d-flex align-items-center gap-8">
                                 <div class="d-flex flex-column">
                                     <h6 class="text-lg mb-0">{{$data->user->name}}</h6>
-                                    <span class="text-sm text-neutral-500">{{$data->tanggal_laporan->diffForHumans()}}</span>
+                                    <span
+                                        class="text-sm text-neutral-500">{{$data->tanggal_laporan->diffForHumans()}}</span>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center gap-md-3 gap-2 flex-wrap">
+                                <div class="d-flex align-items-center gap-8 text-neutral-500 text-lg fw-medium">
+                                    @if ($data->status == 'pending')
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-8-px h-8-px bg-dark rounded-circle"></span>
+                                            <span class="text-dark fw-medium">pending</span>
+                                        </div>
+                                    @elseif ($data->status == 'diproses')
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-8-px h-8-px bg-primary-600 rounded-circle"></span>
+                                            <span class="text-primary-600 fw-medium">diproses</span>
+                                        </div>
+                                    @elseif ($data->status == 'selesai')
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-8-px h-8-px bg-success-600 rounded-circle"></span>
+                                            <span class="text-success-600 fw-medium">selesai</span>
+                                        </div>
+                                    @else
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-8-px h-8-px bg-danger-600 rounded-circle"></span>
+                                            <span class="text-danger-600 fw-medium">ditolak</span>
+                                        </div>
+                                    @endif
+                                </div>
                                 <div class="d-flex align-items-center gap-8 text-neutral-500 text-lg fw-medium">
                                     <i class="ri-chat-3-line"></i>
                                     15 respon

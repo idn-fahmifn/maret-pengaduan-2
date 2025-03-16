@@ -70,6 +70,7 @@
                                         <button type="submit"
                                             class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm">Hapus</button>
                                         <a href="" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Detail</a>
+                                        <a href="" class="btn btn-warning-100 text-warning-600 radius-8 px-14 py-6 text-sm">Edit</a>
                                     </form>
                                 </td>
                             </tr>
