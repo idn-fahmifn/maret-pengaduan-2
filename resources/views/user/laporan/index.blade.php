@@ -6,8 +6,9 @@
 
 @section('content')
     <div class="card basic-data-table">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
             <h5 class="card-title mb-0">Data Laporan Saya</h5>
+            <a href="{{route('laporan.create')}}" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Buat Laporan</a>
         </div>
         <div class="card-body">
 
@@ -66,7 +67,8 @@
                                     <form action="#" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm">Hapus</button>
+                                        <button type="submit"
+                                            class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm">Hapus</button>
                                         <a href="" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Detail</a>
                                     </form>
                                 </td>

@@ -14,5 +14,9 @@ class Laporan extends Model
         'id_user','judul_laporan', 'jenis', 'tanggal_laporan','dokumentasi','status', 'detail_laporan'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 
 }
