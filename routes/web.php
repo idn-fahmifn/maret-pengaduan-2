@@ -22,6 +22,8 @@ Route::prefix('admin')->middleware(['auth','verified', 'admin'])->group(function
     Route::get('laporan', [ResponController::class, 'index'])->name('respon.index');
     Route::get('laporan/{param}', [ResponController::class, 'detail'])->name('respon.detail');
     Route::get('laporan/{param}/respon', [ResponController::class, 'respon'])->name('respon.respon');
+    Route::post('laporan/{param}', [ResponController::class, 'store'])->name('respon.store');
+
 });
 // Routing untuk user biasa
 Route::prefix('user')->middleware(['auth','verified'])->group(function(){

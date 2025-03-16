@@ -12,7 +12,7 @@
                     <h5 class="card-title mb-0">Merespon laporan {{$data->judul_laporan}}</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('laporan.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('respon.store', $data->id)}}" method="post">
                         @csrf
                         <div class="row gy-3">
                             <div class="col-12">
@@ -72,8 +72,6 @@
                                                 <button class="ql-clean"></button>
                                             </span>
                                         </div>
-                                        <!-- Editor Toolbar Start -->
-                                        <!-- Editor start -->
                                         <textarea name="isi_respon" class="form-control" id="editor"></textarea>
                                     </div>
                                 </div>
