@@ -12,7 +12,7 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        $data = Laporan::all();
+        $data = Laporan::where('id_user', Auth::user()->id)->get()->all();
         return view('user.laporan.index', compact('data'));
     }
     public function create()
@@ -79,6 +79,12 @@ class LaporanController extends Controller
         }
         $data->update($input);
         return redirect()->route('laporan.detail',$id)->with('success','Data laporan berhasil diubah.');
-
+    }
+    public function delete($id)
+    {
+        $data = Laporan::findOrFail($id);
+        Storage::delete('public/images/laporan/'. $data->dokumentasi);
+        $data->delete();
+        return redirect()->route('laporan.index')->with('success', 'Data berhasil dihapus');
     }
 }

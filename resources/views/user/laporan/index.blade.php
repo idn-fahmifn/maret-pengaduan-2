@@ -64,13 +64,13 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="#" method="post">
+                                    <form action="{{route('laporan.delete', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit"
-                                            class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm">Hapus</button>
-                                        <a href="" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Detail</a>
-                                        <a href="" class="btn btn-warning-100 text-warning-600 radius-8 px-14 py-6 text-sm">Edit</a>
+                                            class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm" onclick="return confirm('Hapus laporan anda?')">Hapus</button>
+                                        <a href="{{route('laporan.detail',$item->id)}}" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Detail</a>
+                                        <a href="{{route('laporan.edit',$item->id)}}" class="btn btn-warning-100 text-warning-600 radius-8 px-14 py-6 text-sm">Edit</a>
                                     </form>
                                 </td>
                             </tr>

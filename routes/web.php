@@ -33,6 +33,7 @@ Route::prefix('user')->middleware(['auth','verified'])->group(function(){
     Route::get('laporan/{param}', [LaporanController::class, 'detail'])->name('laporan.detail');
     Route::get('laporan/{param}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
     Route::put('laporan/{param}', [LaporanController::class, 'update'])->name('laporan.update');
+    Route::delete('laporan/{param}', [LaporanController::class, 'delete'])->name('laporan.delete');
 });
 
 

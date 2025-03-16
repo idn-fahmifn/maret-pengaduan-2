@@ -7,6 +7,17 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
+            @if (session('success'))
+                <div class="alert alert-success bg-success-100 text-success-600 border-success-100 px-24 py-11 fw-semibold text-lg radius-8 mb-5"
+                    role="alert">
+                    <div class="d-flex align-items-center justify-content-between text-lg">
+                        Berhasil!
+                        <button class="remove-button text-success-600 text-xxl line-height-1"> <iconify-icon
+                                icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+                    </div>
+                    <p class="fw-medium text-success-600 text-sm mt-8">{{session('success')}}</p>
+                </div>
+            @endif
             <div class="card p-0 radius-12 overflow-hidden">
                 <div class="card-body p-0">
                     <img src="{{asset('storage/images/laporan/' . $data->dokumentasi)}}" alt=""
