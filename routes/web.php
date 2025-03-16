@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResponController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,10 @@ Route::prefix('admin')->middleware(['auth','verified', 'admin'])->group(function
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('laporan', [ResponController::class, 'index'])->name('respon.index');
+    Route::get('laporan/{param}', [ResponController::class, 'detail'])->name('respon.detail');
+    Route::get('laporan/{param}/respon', [ResponController::class, 'respon'])->name('respon.respon');
 });
-
 // Routing untuk user biasa
 Route::prefix('user')->middleware(['auth','verified'])->group(function(){
 
@@ -36,9 +39,6 @@ Route::prefix('user')->middleware(['auth','verified'])->group(function(){
     Route::put('laporan/{param}', [LaporanController::class, 'update'])->name('laporan.update');
     Route::delete('laporan/{param}', [LaporanController::class, 'delete'])->name('laporan.delete');
 });
-
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
