@@ -18,7 +18,8 @@ class ResponController extends Controller
     public function detail($id)
     {
         $data = Laporan::findOrFail($id);
-        return view('respon.detail', compact('data'));
+        $respon = Respon::where('id_laporan', $id)->get()->all();
+        return view('respon.detail', compact('data', 'respon'));
     }
 
     public function respon($id)
@@ -42,5 +43,11 @@ class ResponController extends Controller
         $data->status = $request->status;
         $data->save();
         return redirect()->route('respon.detail', $id)->with('success','Respon berhasil ditambahkan.');
+    }
+    public function delete($id)
+    {
+        $data = Respon::findOrFail($id);
+        $data->delete();
+        return back()->with('success','Respon berhasil dihapus');
     }
 }

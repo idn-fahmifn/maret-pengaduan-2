@@ -10,6 +10,9 @@ class Respon extends Model
     protected $fillable=[
         'id_laporan', 'judul_respon', 'isi_respon', 'tanggal_respon'
     ];
+
+    protected $casts=['tanggal_respon' => 'datetime'];
+
     public function laporan()
     {
         return $this->belongsTo(Laporan::class, 'id_laporan');

@@ -75,23 +75,37 @@
             <div class="card mt-24">
                 <div class="card-header border-bottom d-flex justify-content-between">
                     <h6 class="text-xl mb-0">Respon</h6>
-                    <a href="{{route('respon.respon', $data->id)}}" class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Tanggapi</a>
+
+                    @if ($data->status == 'pending' || $data == 'diproses')
+                        <a href="{{route('respon.respon', $data->id)}}"
+                            class="btn btn-info-100 text-info-600 radius-8 px-14 py-6 text-sm">Tanggapi</a>
+                    @else
+                        <span
+                            class="badge text-sm fw-semibold text-info-600 bg-info-100 px-20 py-9 radius-4 text-white">tidak dapat direspon</span>
+                    @endif
                 </div>
                 <div class="card-body p-24">
                     <div class="comment-list d-flex flex-column">
-                        <div class="comment-list__item">
-                            <div class="d-flex align-items-start gap-16">
-                                <div class="flex-grow-1 border-bottom pb-40 mb-40 border-dashed">
-                                    <h6 class="text-lg mb-4">Judul Respon</h6>
-                                    <span class="text-neutral-500 text-sm">16 mar 2025 17:00:00</span>
-                                    <p class="text-neutral-600 text-md my-16">Lorem ipsum dolor sit amet consectetur. Nec
-                                        nunc
-                                        pellentesque massa pretium. Quam sapien nec venenatis vivamus sed cras faucibus mi
-                                        viverra. Quam
-                                        faucibus morbi cras vitae neque. Necnunc pellentesque massa pretium.</p>
+                        @foreach ($respon as $item)
+                            <div class="comment-list__item">
+                                <div class="d-flex align-items-start gap-16">
+                                    <div class="flex-grow-1 border-bottom pb-40 mb-40 border-dashed">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="text-lg mb-4">{{$item->judul_respon}}</h6>
+                                            <form action="{{route('respon.delete',$item->id)}}" method="post">
+                                                @csrf 
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger-100 text-danger-600 radius-8 px-14 py-6 text-sm" onclick="return confirm('Hapus respon ini?')">Delete</button>
+                                            </form>
+                                        </div>
+                                        <span class="text-neutral-500 text-sm">{{$item->tanggal_respon->diffForHumans()}}</span>
+                                        <div class="text-neutral-600 text-md my-16">
+                                            {{$item->isi_respon}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

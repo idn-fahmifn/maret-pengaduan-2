@@ -13,7 +13,7 @@
     </li>
     <li class="sidebar-menu-group-title">Menu</li>
     <li>
-        <a href="/">
+        <a href="{{route('respon.index')}}">
             <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
             <span>Pengaduan Masuk</span>
         </a>

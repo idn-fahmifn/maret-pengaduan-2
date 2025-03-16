@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResponController;
@@ -15,14 +16,13 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth','verified', 'admin'])->group(function(){
 
     // route user dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardAdminController::class, 'dashboard'])->name('dashboard');
 
     Route::get('laporan', [ResponController::class, 'index'])->name('respon.index');
     Route::get('laporan/{param}', [ResponController::class, 'detail'])->name('respon.detail');
     Route::get('laporan/{param}/respon', [ResponController::class, 'respon'])->name('respon.respon');
     Route::post('laporan/{param}', [ResponController::class, 'store'])->name('respon.store');
+    Route::delete('laporan/{param}', [ResponController::class, 'delete'])->name('respon.delete');
 
 });
 // Routing untuk user biasa

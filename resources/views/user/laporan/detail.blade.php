@@ -78,19 +78,19 @@
                 </div>
                 <div class="card-body p-24">
                     <div class="comment-list d-flex flex-column">
-                        <div class="comment-list__item">
-                            <div class="d-flex align-items-start gap-16">
-                                <div class="flex-grow-1 border-bottom pb-40 mb-40 border-dashed">
-                                    <h6 class="text-lg mb-4">Judul Respon</h6>
-                                    <span class="text-neutral-500 text-sm">16 mar 2025 17:00:00</span>
-                                    <p class="text-neutral-600 text-md my-16">Lorem ipsum dolor sit amet consectetur. Nec
-                                        nunc
-                                        pellentesque massa pretium. Quam sapien nec venenatis vivamus sed cras faucibus mi
-                                        viverra. Quam
-                                        faucibus morbi cras vitae neque. Necnunc pellentesque massa pretium.</p>
+                        @foreach ($respon as $item)
+                            <div class="comment-list__item">
+                                <div class="d-flex align-items-start gap-16">
+                                    <div class="flex-grow-1 border-bottom pb-40 mb-40 border-dashed">
+                                        <h6 class="text-lg mb-4">{{$item->judul_respon}}</h6>
+                                        <span class="text-neutral-500 text-sm">{{$item->tanggal_respon->diffForHumans()}}</span>
+                                        <div class="text-neutral-600 text-md my-16">
+                                            {{$item->isi_respon}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
