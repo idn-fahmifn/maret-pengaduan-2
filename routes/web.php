@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,7 +13,7 @@ Route::get('/', function () {
 // Routing Khusus admin
 Route::prefix('admin')->middleware(['auth','verified', 'admin'])->group(function(){
 
-    // route admin dashboard
+    // route user dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
